@@ -15,7 +15,6 @@ public class LogTestController {
 
     @RequestMapping("/log-test")
     public String logTest() {
-
         String name = "LogTest";
 
         // log.trace("trace log=" + name); => 로그레벨을 debug로 했음에도 의미없는 문자 더하기 연산이 발생하기 때문에 이렇게 사용하지 말자!
