@@ -16,17 +16,19 @@ MVC 패턴은 하나의 서블릿이나, JSP로 처리하던 것을 컨트롤러
 5. ViewResolver를 호출하여 뷰의 논리 이름을 물리 이름으로 바꾸고, 렌더링 역할을 담당하는 뷰 객체를 반환
 6. 뷰 렌더링
 
-# 컨트롤러
+# 컨트롤러(Controller)
 - @Controller : 스프링이 자동으로 스프링 빈으로 등록(내부에 @Component 애노테이션이 있어서 컴포넌트 스캔의 대상이 됨)
 - @RequestMapping : : 요청 정보를 매핑하며, 해당 URL이 호출되면 이 애노테이션이 선언된 메서드가 호출됨
 
 ※ 스프링 부트 3.0(스프링 프레임워크 6.0)부터는 클래스 레벨에 @RequestMapping 이 있어도 스프링 컨트롤러로 인식하지 않고, 오직 @Controller 가 있어야 스프링 컨트롤러로 인식
 
 예시)
-@Controller
-public class MyController {
-    @RequestMapping("/springmvc/new-form")
-    public ModelAndView process() {
-        return new ModelAndView("new-form");
+
+    @Controller
+    public class MyController {
+    
+        @RequestMapping("/springmvc/new-form")
+        public ModelAndView process() {
+            return new ModelAndView("new-form");
+        }
     }
-}
