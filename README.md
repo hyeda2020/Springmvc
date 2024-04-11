@@ -72,7 +72,7 @@ SpringMemberController.java
             
             Member member = new Member(username, age);
             memberRepository.save(member);
-            model.addAttribute("member", member);
+            model.addAttribute("member", member); // 뷰에서 렌더링할 데이터를 Model 객체에 담음
             return "save-result"; // "save-result" 라는 뷰의 논리 이름 반환하면 뷰 리졸버가 save-result.html 뷰 파일과 매핑해줌
         }
     }
