@@ -5,7 +5,8 @@ https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-mvc-1/
 
 
 # 1. MVC 패턴이란
-MVC 패턴은 하나의 서블릿이나, JSP로 처리하던 것을 컨트롤러(Controller)와 뷰(View)라는 영역으로 서로 역할을 나눈 것으로, 웹 애플리케이션은 보통 이 MVC 패턴을 사용
+MVC 패턴은 하나의 서블릿이나, JSP로 처리하던 것을 컨트롤러(Controller)와 뷰(View)라는 영역으로 서로 역할을 나눈 것으로,  
+웹 애플리케이션은 보통 이 MVC 패턴을 사용
 - 컨트롤러(Controller): HTTP 요청을 받아서 파라미터를 검증하고, 비즈니스 로직을 실행. 그리고 뷰에 전달할 결과 데이터를 조회해서 모델에 담음
 - 모델(Model): 뷰에 출력할 데이터를 담아둠. 뷰가 필요한 데이터를 모두 모델에 담아서 전달해주는 덕분에 뷰는 비즈니스 로직이나 데이터 접근을 몰라도 되고, 화면을 렌더링 하는 일에 집중할 수 있음
 - 뷰(View): 모델에 담겨있는 데이터를 사용해서 화면을 그리는 일에 집중
@@ -24,10 +25,10 @@ MVC 패턴은 하나의 서블릿이나, JSP로 처리하던 것을 컨트롤러
 
 
 # 3. 컨트롤러(Controller)
-@Controller : 스프링이 자동으로 스프링 빈으로 등록(내부에 @Component 애노테이션이 있어서 컴포넌트 스캔의 대상이 됨)
-@RequestMapping : 요청 정보를 매핑하며, 해당 URL이 호출되면 이 애노테이션이 선언된 메서드가 호출됨
+`@Controller` : 스프링이 자동으로 스프링 빈으로 등록(내부에 @Component 애노테이션이 있어서 컴포넌트 스캔의 대상이 됨)  
+`@RequestMapping` : 요청 정보를 매핑하며, 해당 URL이 호출되면 이 애노테이션이 선언된 메서드가 호출됨  
 
-※ 스프링 부트 3.0(스프링 프레임워크 6.0)부터는 클래스 레벨에 @RequestMapping 이 있어도 스프링 컨트롤러로 인식하지 않고, @Controller 또는 @RestController가 있어야 스프링 컨트롤러로 인식
+※ 스프링 부트 3.0(스프링 프레임워크 6.0)부터는 클래스 레벨에 `@RequestMapping`이 있어도 스프링 컨트롤러로 인식하지 않고, `@Controller` 또는 `@RestController`가 있어야 스프링 컨트롤러로 인식
 
 예시)
 
@@ -43,20 +44,20 @@ MVC 패턴은 하나의 서블릿이나, JSP로 처리하던 것을 컨트롤러
 
 # 4. 뷰 리졸버(ViewResolver)
 컨트롤러는 특정 뷰를 식별하기 위해 문자열 형태의 뷰 이름을 반환하며, 이때 뷰 리졸버는 이 뷰의 이름을 실제 뷰 템플릿 파일로 매핑.  
-@Controller는 반환 값이 String 타입이면 View 이름으로 인식되어 해당 View를 찾고 View가 렌더링함.  
+`@Controller`는 반환 값이 String 타입이면 View 이름으로 인식되어 해당 View를 찾고 View가 렌더링함.  
 
 예를 들어 컨트롤러가 "home"이라는 뷰 이름을 리턴하면, 뷰 리졸버는 이를 "home.jsp"나 "home.html"같은 실제파일로 매핑해줌   
 ※ 스프링 MVC는 JSP, Thymeleaf, FreeMarker 등과 관련된 다양한 뷰 기술을 지원하며 이를 위해 여러 뷰 리졸버를 제공  
 
 예시)
 
-application.properties
+[application.properties]
 
     # ViewResolver가 View를 찾기 위한 경로 설정 
     spring.mvc.view.prefix=/WEB-INF/views/
     spring.mvc.view.suffix=.jsp
 
-SpringMemberController.java
+[SpringMemberController.java]
 
     @Controller
     @RequestMapping("/springmvc/members")
