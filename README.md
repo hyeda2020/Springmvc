@@ -51,13 +51,13 @@ MVC 패턴은 하나의 서블릿이나, JSP로 처리하던 것을 컨트롤러
 
 예시)
 
-[application.properties]
+<application.properties>
 
     # ViewResolver가 View를 찾기 위한 경로 설정 
     spring.mvc.view.prefix=/WEB-INF/views/
     spring.mvc.view.suffix=.jsp
 
-[SpringMemberController.java]
+<SpringMemberController.java>
 
     @Controller
     @RequestMapping("/springmvc/members")
